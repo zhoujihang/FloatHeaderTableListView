@@ -1,0 +1,720 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		105A29AD88C91C7A52797FE3 /* Pods_XZFloatHeaderTableListViewControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31F25A856B21C10E180ADF0D /* Pods_XZFloatHeaderTableListViewControllerTests.framework */; };
+		47132929226D9E1C006FD894 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47132928226D9E1C006FD894 /* AppDelegate.m */; };
+		4713292C226D9E1C006FD894 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4713292B226D9E1C006FD894 /* ViewController.m */; };
+		4713292F226D9E1C006FD894 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4713292D226D9E1C006FD894 /* Main.storyboard */; };
+		47132931226D9E1D006FD894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47132930226D9E1D006FD894 /* Assets.xcassets */; };
+		47132934226D9E1D006FD894 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47132932226D9E1D006FD894 /* LaunchScreen.storyboard */; };
+		47132937226D9E1D006FD894 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47132936226D9E1D006FD894 /* main.m */; };
+		47132941226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47132940226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests.m */; };
+		4713294C226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4713294B226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests.m */; };
+		47A31C53226DA3BA004992C4 /* XZHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A31C52226DA3BA004992C4 /* XZHeaderView.m */; };
+		47A31C56226DB799004992C4 /* XZTableListScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A31C55226DB799004992C4 /* XZTableListScrollView.m */; };
+		61F0581480E3C19BDF6617EC /* Pods_XZFloatHeaderTableListViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DC257401E4A59D9A98D269 /* Pods_XZFloatHeaderTableListViewController.framework */; };
+		733AAF3523904EC048B1F2C0 /* Pods_XZFloatHeaderTableListViewControllerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0BD60EE1C36DC51E687357 /* Pods_XZFloatHeaderTableListViewControllerUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4713293D226D9E1E006FD894 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4713291C226D9E1C006FD894 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47132923226D9E1C006FD894;
+			remoteInfo = XZFloatHeaderTableListViewController;
+		};
+		47132948226D9E1E006FD894 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4713291C226D9E1C006FD894 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47132923226D9E1C006FD894;
+			remoteInfo = XZFloatHeaderTableListViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2B84BAEE4789AD13C5470A98 /* Pods-XZFloatHeaderTableListViewControllerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XZFloatHeaderTableListViewControllerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XZFloatHeaderTableListViewControllerUITests/Pods-XZFloatHeaderTableListViewControllerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		31F25A856B21C10E180ADF0D /* Pods_XZFloatHeaderTableListViewControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XZFloatHeaderTableListViewControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41DC257401E4A59D9A98D269 /* Pods_XZFloatHeaderTableListViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XZFloatHeaderTableListViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47132924226D9E1C006FD894 /* XZFloatHeaderTableListViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XZFloatHeaderTableListViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47132927226D9E1C006FD894 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		47132928226D9E1C006FD894 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4713292A226D9E1C006FD894 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4713292B226D9E1C006FD894 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4713292E226D9E1C006FD894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		47132930226D9E1D006FD894 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		47132933226D9E1D006FD894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		47132935226D9E1D006FD894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47132936226D9E1D006FD894 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4713293C226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XZFloatHeaderTableListViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47132940226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZFloatHeaderTableListViewControllerTests.m; sourceTree = "<group>"; };
+		47132942226D9E1E006FD894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47132947226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XZFloatHeaderTableListViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4713294B226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZFloatHeaderTableListViewControllerUITests.m; sourceTree = "<group>"; };
+		4713294D226D9E1E006FD894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47A31C51226DA3BA004992C4 /* XZHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZHeaderView.h; sourceTree = "<group>"; };
+		47A31C52226DA3BA004992C4 /* XZHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZHeaderView.m; sourceTree = "<group>"; };
+		47A31C54226DB799004992C4 /* XZTableListScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZTableListScrollView.h; sourceTree = "<group>"; };
+		47A31C55226DB799004992C4 /* XZTableListScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZTableListScrollView.m; sourceTree = "<group>"; };
+		4A0BD60EE1C36DC51E687357 /* Pods_XZFloatHeaderTableListViewControllerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XZFloatHeaderTableListViewControllerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A243F13F0BBC80CF93E6936D /* Pods-XZFloatHeaderTableListViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XZFloatHeaderTableListViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XZFloatHeaderTableListViewController/Pods-XZFloatHeaderTableListViewController.debug.xcconfig"; sourceTree = "<group>"; };
+		A5F833679CD1E371FD886784 /* Pods-XZFloatHeaderTableListViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XZFloatHeaderTableListViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-XZFloatHeaderTableListViewController/Pods-XZFloatHeaderTableListViewController.release.xcconfig"; sourceTree = "<group>"; };
+		AA23918D213FE0A026134218 /* Pods-XZFloatHeaderTableListViewControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XZFloatHeaderTableListViewControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XZFloatHeaderTableListViewControllerTests/Pods-XZFloatHeaderTableListViewControllerTests.release.xcconfig"; sourceTree = "<group>"; };
+		D85A8E87A5957AC67189C13A /* Pods-XZFloatHeaderTableListViewControllerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XZFloatHeaderTableListViewControllerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XZFloatHeaderTableListViewControllerUITests/Pods-XZFloatHeaderTableListViewControllerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FCFBD8C77483034913B06E59 /* Pods-XZFloatHeaderTableListViewControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XZFloatHeaderTableListViewControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XZFloatHeaderTableListViewControllerTests/Pods-XZFloatHeaderTableListViewControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47132921226D9E1C006FD894 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61F0581480E3C19BDF6617EC /* Pods_XZFloatHeaderTableListViewController.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47132939226D9E1E006FD894 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				105A29AD88C91C7A52797FE3 /* Pods_XZFloatHeaderTableListViewControllerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47132944226D9E1E006FD894 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				733AAF3523904EC048B1F2C0 /* Pods_XZFloatHeaderTableListViewControllerUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4713291B226D9E1C006FD894 = {
+			isa = PBXGroup;
+			children = (
+				47132926226D9E1C006FD894 /* XZFloatHeaderTableListViewController */,
+				4713293F226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests */,
+				4713294A226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests */,
+				47132925226D9E1C006FD894 /* Products */,
+				858100FA6EBDB5ECD73B30FD /* Pods */,
+				56E9A02A30380DDF847286EC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		47132925226D9E1C006FD894 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47132924226D9E1C006FD894 /* XZFloatHeaderTableListViewController.app */,
+				4713293C226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests.xctest */,
+				47132947226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47132926226D9E1C006FD894 /* XZFloatHeaderTableListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				47132927226D9E1C006FD894 /* AppDelegate.h */,
+				47132928226D9E1C006FD894 /* AppDelegate.m */,
+				4713292A226D9E1C006FD894 /* ViewController.h */,
+				4713292B226D9E1C006FD894 /* ViewController.m */,
+				47132959226D9EBE006FD894 /* Supporting Files */,
+				47A31C51226DA3BA004992C4 /* XZHeaderView.h */,
+				47A31C52226DA3BA004992C4 /* XZHeaderView.m */,
+				47A31C54226DB799004992C4 /* XZTableListScrollView.h */,
+				47A31C55226DB799004992C4 /* XZTableListScrollView.m */,
+			);
+			path = XZFloatHeaderTableListViewController;
+			sourceTree = "<group>";
+		};
+		4713293F226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				47132940226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests.m */,
+				47132942226D9E1E006FD894 /* Info.plist */,
+			);
+			path = XZFloatHeaderTableListViewControllerTests;
+			sourceTree = "<group>";
+		};
+		4713294A226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4713294B226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests.m */,
+				4713294D226D9E1E006FD894 /* Info.plist */,
+			);
+			path = XZFloatHeaderTableListViewControllerUITests;
+			sourceTree = "<group>";
+		};
+		47132959226D9EBE006FD894 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4713292D226D9E1C006FD894 /* Main.storyboard */,
+				47132930226D9E1D006FD894 /* Assets.xcassets */,
+				47132932226D9E1D006FD894 /* LaunchScreen.storyboard */,
+				47132935226D9E1D006FD894 /* Info.plist */,
+				47132936226D9E1D006FD894 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		56E9A02A30380DDF847286EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41DC257401E4A59D9A98D269 /* Pods_XZFloatHeaderTableListViewController.framework */,
+				31F25A856B21C10E180ADF0D /* Pods_XZFloatHeaderTableListViewControllerTests.framework */,
+				4A0BD60EE1C36DC51E687357 /* Pods_XZFloatHeaderTableListViewControllerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		858100FA6EBDB5ECD73B30FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A243F13F0BBC80CF93E6936D /* Pods-XZFloatHeaderTableListViewController.debug.xcconfig */,
+				A5F833679CD1E371FD886784 /* Pods-XZFloatHeaderTableListViewController.release.xcconfig */,
+				FCFBD8C77483034913B06E59 /* Pods-XZFloatHeaderTableListViewControllerTests.debug.xcconfig */,
+				AA23918D213FE0A026134218 /* Pods-XZFloatHeaderTableListViewControllerTests.release.xcconfig */,
+				2B84BAEE4789AD13C5470A98 /* Pods-XZFloatHeaderTableListViewControllerUITests.debug.xcconfig */,
+				D85A8E87A5957AC67189C13A /* Pods-XZFloatHeaderTableListViewControllerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47132923226D9E1C006FD894 /* XZFloatHeaderTableListViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47132950226D9E1E006FD894 /* Build configuration list for PBXNativeTarget "XZFloatHeaderTableListViewController" */;
+			buildPhases = (
+				05B3FD4DFFFCC0EB10A6D111 /* [CP] Check Pods Manifest.lock */,
+				47132920226D9E1C006FD894 /* Sources */,
+				47132921226D9E1C006FD894 /* Frameworks */,
+				47132922226D9E1C006FD894 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XZFloatHeaderTableListViewController;
+			productName = XZFloatHeaderTableListViewController;
+			productReference = 47132924226D9E1C006FD894 /* XZFloatHeaderTableListViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4713293B226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47132953226D9E1E006FD894 /* Build configuration list for PBXNativeTarget "XZFloatHeaderTableListViewControllerTests" */;
+			buildPhases = (
+				6A86F832E9FDDBFABAE605B3 /* [CP] Check Pods Manifest.lock */,
+				47132938226D9E1E006FD894 /* Sources */,
+				47132939226D9E1E006FD894 /* Frameworks */,
+				4713293A226D9E1E006FD894 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4713293E226D9E1E006FD894 /* PBXTargetDependency */,
+			);
+			name = XZFloatHeaderTableListViewControllerTests;
+			productName = XZFloatHeaderTableListViewControllerTests;
+			productReference = 4713293C226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		47132946226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47132956226D9E1E006FD894 /* Build configuration list for PBXNativeTarget "XZFloatHeaderTableListViewControllerUITests" */;
+			buildPhases = (
+				2669AE6FB2AEC7079EFBF471 /* [CP] Check Pods Manifest.lock */,
+				47132943226D9E1E006FD894 /* Sources */,
+				47132944226D9E1E006FD894 /* Frameworks */,
+				47132945226D9E1E006FD894 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47132949226D9E1E006FD894 /* PBXTargetDependency */,
+			);
+			name = XZFloatHeaderTableListViewControllerUITests;
+			productName = XZFloatHeaderTableListViewControllerUITests;
+			productReference = 47132947226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4713291C226D9E1C006FD894 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = zjh;
+				TargetAttributes = {
+					47132923226D9E1C006FD894 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					4713293B226D9E1E006FD894 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 47132923226D9E1C006FD894;
+					};
+					47132946226D9E1E006FD894 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 47132923226D9E1C006FD894;
+					};
+				};
+			};
+			buildConfigurationList = 4713291F226D9E1C006FD894 /* Build configuration list for PBXProject "XZFloatHeaderTableListViewController" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4713291B226D9E1C006FD894;
+			productRefGroup = 47132925226D9E1C006FD894 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47132923226D9E1C006FD894 /* XZFloatHeaderTableListViewController */,
+				4713293B226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests */,
+				47132946226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		47132922226D9E1C006FD894 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47132934226D9E1D006FD894 /* LaunchScreen.storyboard in Resources */,
+				47132931226D9E1D006FD894 /* Assets.xcassets in Resources */,
+				4713292F226D9E1C006FD894 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4713293A226D9E1E006FD894 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47132945226D9E1E006FD894 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05B3FD4DFFFCC0EB10A6D111 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XZFloatHeaderTableListViewController-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2669AE6FB2AEC7079EFBF471 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XZFloatHeaderTableListViewControllerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A86F832E9FDDBFABAE605B3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XZFloatHeaderTableListViewControllerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47132920226D9E1C006FD894 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4713292C226D9E1C006FD894 /* ViewController.m in Sources */,
+				47132937226D9E1D006FD894 /* main.m in Sources */,
+				47132929226D9E1C006FD894 /* AppDelegate.m in Sources */,
+				47A31C56226DB799004992C4 /* XZTableListScrollView.m in Sources */,
+				47A31C53226DA3BA004992C4 /* XZHeaderView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47132938226D9E1E006FD894 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47132941226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47132943226D9E1E006FD894 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4713294C226D9E1E006FD894 /* XZFloatHeaderTableListViewControllerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4713293E226D9E1E006FD894 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47132923226D9E1C006FD894 /* XZFloatHeaderTableListViewController */;
+			targetProxy = 4713293D226D9E1E006FD894 /* PBXContainerItemProxy */;
+		};
+		47132949226D9E1E006FD894 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47132923226D9E1C006FD894 /* XZFloatHeaderTableListViewController */;
+			targetProxy = 47132948226D9E1E006FD894 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4713292D226D9E1C006FD894 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4713292E226D9E1C006FD894 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		47132932226D9E1D006FD894 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47132933226D9E1D006FD894 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4713294E226D9E1E006FD894 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4713294F226D9E1E006FD894 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		47132951226D9E1E006FD894 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A243F13F0BBC80CF93E6936D /* Pods-XZFloatHeaderTableListViewController.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 5NKN37L53L;
+				INFOPLIST_FILE = XZFloatHeaderTableListViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xiaozhu.com.XZTenant.XZTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development xiaozhu.com.XZTenant.XZTest";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		47132952226D9E1E006FD894 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5F833679CD1E371FD886784 /* Pods-XZFloatHeaderTableListViewController.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = XZFloatHeaderTableListViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xiaozhu.com.XZTenant.XZTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		47132954226D9E1E006FD894 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCFBD8C77483034913B06E59 /* Pods-XZFloatHeaderTableListViewControllerTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XZFloatHeaderTableListViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjh.XZFloatHeaderTableListViewControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XZFloatHeaderTableListViewController.app/XZFloatHeaderTableListViewController";
+			};
+			name = Debug;
+		};
+		47132955226D9E1E006FD894 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA23918D213FE0A026134218 /* Pods-XZFloatHeaderTableListViewControllerTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XZFloatHeaderTableListViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjh.XZFloatHeaderTableListViewControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XZFloatHeaderTableListViewController.app/XZFloatHeaderTableListViewController";
+			};
+			name = Release;
+		};
+		47132957226D9E1E006FD894 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B84BAEE4789AD13C5470A98 /* Pods-XZFloatHeaderTableListViewControllerUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XZFloatHeaderTableListViewControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjh.XZFloatHeaderTableListViewControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = XZFloatHeaderTableListViewController;
+			};
+			name = Debug;
+		};
+		47132958226D9E1E006FD894 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D85A8E87A5957AC67189C13A /* Pods-XZFloatHeaderTableListViewControllerUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XZFloatHeaderTableListViewControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjh.XZFloatHeaderTableListViewControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = XZFloatHeaderTableListViewController;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4713291F226D9E1C006FD894 /* Build configuration list for PBXProject "XZFloatHeaderTableListViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4713294E226D9E1E006FD894 /* Debug */,
+				4713294F226D9E1E006FD894 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47132950226D9E1E006FD894 /* Build configuration list for PBXNativeTarget "XZFloatHeaderTableListViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47132951226D9E1E006FD894 /* Debug */,
+				47132952226D9E1E006FD894 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47132953226D9E1E006FD894 /* Build configuration list for PBXNativeTarget "XZFloatHeaderTableListViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47132954226D9E1E006FD894 /* Debug */,
+				47132955226D9E1E006FD894 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47132956226D9E1E006FD894 /* Build configuration list for PBXNativeTarget "XZFloatHeaderTableListViewControllerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47132957226D9E1E006FD894 /* Debug */,
+				47132958226D9E1E006FD894 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4713291C226D9E1C006FD894 /* Project object */;
+}

@@ -1,0 +1,12 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target 'XZFloatHeaderTableListViewController' do
+  
+  target 'XZFloatHeaderTableListViewControllerTests' do
+    inherit! :search_paths
+  end
+  target 'XZFloatHeaderTableListViewControllerUITests' do
+    inherit! :search_paths
+  end
+end
