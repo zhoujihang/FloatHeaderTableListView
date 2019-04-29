@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "XZTableListScrollView.h"
 #import "XZHeaderView.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface ViewController ()  <XZTableListScrollViewDelegate>
 
@@ -49,8 +50,13 @@
     self.tableListView.delegate = self;
     for (UITableView *tableView in self.tableListView.tableList) {
         [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+        MJRefreshHeader *refresh = [MJRefreshHeader headerWithRefreshingBlock:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [tableView.mj_header endRefreshing];
+            });
+        }];
+        tableView.mj_header = refresh;
     }
-    
     [self.view addSubview:self.tableListView];
 }
 
@@ -96,6 +102,9 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0.01;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView.mj_header beginRefreshing];
 }
 
 @end

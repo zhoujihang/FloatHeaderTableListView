@@ -19,10 +19,6 @@
 /// 当前显示的tableview索引
 @property (nonatomic, assign, readwrite) NSInteger currentIndex;
 @property (nonatomic, strong, nullable, readwrite) UITableView *currentTableView;
-/// headerView.frame.origin.y 的最小值
-@property (nonatomic, assign) CGFloat headerMinY;
-/// pan 手势上一个手势点
-@property (nonatomic, assign) CGPoint oldPoint;
 
 @end
 
@@ -70,16 +66,58 @@
     [super layoutSubviews];
     [self updateFrame];
 }
+#pragma mark - headerView
+- (void)addHeaderViewToSelf {
+    UIView *headerView = self.viewModel.headerView;
+    if (!headerView) {return;}
+    if (headerView.superview != self) {
+        [headerView removeFromSuperview];
+        [self addSubview:headerView];
+    }
+    [self updateHeaderViewFrameWhenScrollHorizontal];
+}
+- (void)addHeaderViewToCurrentTableView {
+    UIView *headerView = self.viewModel.headerView;
+    if (!headerView) {return;}
+    if (headerView.superview != self.currentTableView) {
+        [headerView removeFromSuperview];
+        [self.currentTableView addSubview:headerView];
+    }
+    [self updateHeaderViewFrameWhenScrollVertical];
+}
+/// 水平滚动时，headerView 在self身上
+- (void)updateHeaderViewFrameWhenScrollHorizontal {
+    CGFloat offsetY = self.currentTableView.contentOffset.y;
+    CGFloat headerY = MAX(-ABS(self.viewModel.headerViewHeight - self.viewModel.headerFloatHeight), MIN(0, -offsetY));
+    self.viewModel.headerView.frame = CGRectMake(0, headerY, self.bounds.size.width, self.viewModel.headerViewHeight);
+}
+/// 垂直滚动时，headerView 在self.currentTableView身上
+- (void)updateHeaderViewFrameWhenScrollVertical {
+    CGFloat offsetY = self.currentTableView.contentOffset.y;
+    CGFloat hiddenHeight = self.viewModel.headerViewHeight - self.viewModel.headerFloatHeight;
+    CGFloat headerY = 0;
+    if (offsetY >= hiddenHeight) {
+        headerY = offsetY - hiddenHeight;
+    }
+    self.viewModel.headerView.frame = CGRectMake(0, headerY, self.bounds.size.width, self.viewModel.headerViewHeight);
+}
 
+#pragma mark - 变量设置
 - (void)setViewModel:(XZTableListScrollViewModel *)viewModel {
+    if (_viewModel.headerView) {
+        [_viewModel.headerView removeFromSuperview];
+    }
     _viewModel = viewModel;
     [self createTableViewList];
-    
     if (self.viewModel.headerView) {
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(headerViewDidPan:)];
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] init];
         [self.viewModel.headerView addGestureRecognizer:pan];
-        [self addSubview:self.viewModel.headerView];
-        self.headerMinY = -ABS(self.viewModel.headerViewHeight - self.viewModel.headerFloatHeight);
+        [self.currentTableView addSubview:self.viewModel.headerView];
+        /// 设置手势优先级 tableView > headerView > scrollView
+        [self.scrollView.panGestureRecognizer requireGestureRecognizerToFail:pan];
+        for (UITableView *tableView in self.tableList) {
+            [pan requireGestureRecognizerToFail:tableView.panGestureRecognizer];
+        }
     }
 }
 
@@ -98,6 +136,7 @@
         tableView.estimatedSectionHeaderHeight = 0;
         tableView.estimatedSectionFooterHeight = 0;
         tableView.showsVerticalScrollIndicator = NO;
+//        tableView.bounces = NO;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         if (@available(iOS 11.0, *)) {
             tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -185,7 +224,11 @@
         return 0.01;
     }
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
+}
 #pragma mark - UIScrollView 代理
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
@@ -194,35 +237,50 @@
     CGFloat viewWidth = self.scrollView.frame.size.width;
     if (scrollView == self.scrollView) {
         self.currentIndex = self.scrollView.contentOffset.x / viewWidth;
-        NSLog(@"zjh currentIndex:%ld", self.currentIndex);
         return;
     }
-    CGFloat offsetY = scrollView.contentOffset.y;
-    CGFloat headerY = MAX(self.headerMinY, MIN(0, -offsetY));
-    self.viewModel.headerView.frame = CGRectMake(0, headerY, self.bounds.size.width, self.viewModel.headerViewHeight);
+    [self updateHeaderViewFrameWhenScrollVertical];
 }
-
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    if ([self.delegate respondsToSelector:@selector(scrollViewWillEndDragging:withVelocity:targetContentOffset:)]) {
-        [self.delegate scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
-    }
-}
-
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if ([self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
         [self.delegate scrollViewWillBeginDragging:scrollView];
     }
     if (scrollView != self.scrollView) {return;}
     [self fixupTableViewContentOffset];
+    [self addHeaderViewToSelf];
 }
-
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if ([self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)]) {
+        [self.delegate scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+    }
+    if (scrollView != self.scrollView) {return;}
+    if (!decelerate) {
+        [self scrollViewDidScrollStop:scrollView];
+    }
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
+        [self.delegate scrollViewDidEndDecelerating:scrollView];
+    }
+    if (scrollView != self.scrollView) {return;}
+    [self scrollViewDidScrollStop:scrollView];
+}
+/// self.scrollView 左右滑动停止
+- (void)scrollViewDidScrollStop:(UIScrollView *)scrollView {
+    [self addHeaderViewToCurrentTableView];
+}
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    if ([self.delegate respondsToSelector:@selector(scrollViewWillEndDragging:withVelocity:targetContentOffset:)]) {
+        [self.delegate scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
+    }
+}
 #pragma mark - 处理 tableview 的偏移
 - (void)fixupTableViewContentOffset {
     if (self.currentIndex >= self.tableList.count) {return;}
-    UITableView *tableView = self.tableList[self.currentIndex];
-    if (self.viewModel.headerView.frame.origin.y > self.headerMinY) {
+    CGFloat offsetY = self.currentTableView.contentOffset.y;
+    if (offsetY < self.viewModel.headerViewHeight - self.viewModel.headerFloatHeight) {
         /// headerView 处于未完全收缩状态
-        [self allTableViewScrollToOffsetY:tableView.contentOffset.y];
+        [self allTableViewScrollToOffsetY:offsetY];
     } else {
         /// headerView 处于完全收缩状态
         [self allTableViewCheckOriginY];
@@ -238,22 +296,9 @@
 - (void)allTableViewCheckOriginY {
     for (UITableView *tableView in self.tableList) {
         CGPoint point = tableView.contentOffset;
-        point.y = MAX(ABS(self.headerMinY), point.y);
+        point.y = MAX(ABS(self.viewModel.headerViewHeight - self.viewModel.headerFloatHeight), point.y);
         tableView.contentOffset = point;
     }
-}
-
-#pragma mark - header手势
-- (void)headerViewDidPan:(UIPanGestureRecognizer *)pan {
-    CGPoint point = [pan translationInView:self];
-    if (pan.state == UIGestureRecognizerStateChanged) {
-        UITableView *tableView = self.currentTableView;
-        CGPoint offset = tableView.contentOffset;
-        offset.y -= point.y - self.oldPoint.y;
-        offset.y = MAX(0, offset.y);
-        tableView.contentOffset = offset;
-    }
-    self.oldPoint = point;
 }
 
 @end
