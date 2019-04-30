@@ -123,6 +123,9 @@
             [pan requireGestureRecognizerToFail:tableView.panGestureRecognizer];
         }
     }
+    for (NSInteger i=0; i<self.tableList.count; i++) {
+        [self reloadTableViewAtIndex:i];
+    }
 }
 
 - (void)createTableViewList {
