@@ -111,6 +111,7 @@
     }
     _viewModel = viewModel;
     [self createTableViewList];
+    [self updateFrame];
     if (self.viewModel.headerView) {
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] init];
         [self.viewModel.headerView addGestureRecognizer:pan];
