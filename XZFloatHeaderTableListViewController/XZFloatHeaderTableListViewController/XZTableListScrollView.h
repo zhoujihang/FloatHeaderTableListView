@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) NSInteger currentIndex;
 @property (nonatomic, strong, nullable, readonly) UITableView *currentTableView;
 
+/// 使用此方法刷新，能使 headerView 收缩到最小状态 （通过修改contentInset.bottom扩大contentSize的高度）
+- (void)reloadTableViewAtIndex:(NSInteger)index;
+
 @end
 
 NS_ASSUME_NONNULL_END

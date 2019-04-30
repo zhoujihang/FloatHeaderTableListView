@@ -155,6 +155,18 @@
     return self.tableList[self.currentIndex];
 }
 
+- (void)reloadTableViewAtIndex:(NSInteger)index {
+    if (index >= self.tableList.count) {return;}
+    UITableView *tableView = self.tableList[index];
+    [tableView reloadData];
+    CGFloat minHeight = (self.viewModel.headerViewHeight - self.viewModel.headerFloatHeight) + self.bounds.size.height;
+    CGFloat contentHeight = tableView.contentInset.top + tableView.contentInset.bottom + tableView.contentSize.height;
+    CGFloat footerExtraHeight = MAX(0, minHeight - contentHeight);
+    UIEdgeInsets insets = tableView.contentInset;
+    insets.bottom += footerExtraHeight;
+    tableView.contentInset = insets;
+}
+
 #pragma mark - 视图大小
 - (CGSize)sizeThatFits:(CGSize)size {
     return [self intrinsicContentSize];

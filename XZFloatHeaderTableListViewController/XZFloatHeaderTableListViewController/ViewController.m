@@ -70,12 +70,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    NSInteger tableIndex = [self.tableListView.tableList indexOfObject:tableView];
+    return tableIndex==0 ? 3 : 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    NSString *text = [[NSString alloc] initWithFormat:@"%ld - %ld", indexPath.section, indexPath.row];
+    NSString *text = [[NSString alloc] initWithFormat:@"%ld - %ld", (long)indexPath.section, (long)indexPath.row];
     if (indexPath.row == 0) {
         text = @"0 - 0";
     } else if (indexPath.row == 1) {
@@ -104,7 +105,9 @@
     return 0.01;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView.mj_header beginRefreshing];
+//    [tableView.mj_header beginRefreshing];
+    if ([self.tableListView.tableList indexOfObject:tableView] != 0) {return;}
+    [self.tableListView reloadTableViewAtIndex:0];
 }
 
 @end
