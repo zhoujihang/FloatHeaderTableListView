@@ -106,8 +106,18 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    [tableView.mj_header beginRefreshing];
-    if ([self.tableListView.tableList indexOfObject:tableView] != 0) {return;}
-    [self.tableListView reloadTableViewAtIndex:0];
+    NSInteger index = [self.tableListView.tableList indexOfObject:tableView];
+    if (index == 0) {
+        [self.tableListView reloadTableViewAtIndex:0];
+    } else if (index == 1) {
+        [self.tableListView scrollToIndex:5 animated:YES];
+    } else if (index == 2) {
+        [self.tableListView currentTableViewScrollToTopAnimated:YES];
+    } else if (index == 3) {
+        [self.tableListView currentTableViewScrollToTopAnimated:NO];
+    } else if (index == 5) {
+        [self.tableListView scrollToIndex:0 animated:NO];
+    }
 }
 
 @end

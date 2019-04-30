@@ -41,6 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 使用此方法刷新，能使 headerView 收缩到最小状态 （通过修改contentInset.bottom扩大contentSize的高度）
 - (void)reloadTableViewAtIndex:(NSInteger)index;
+/// 滚动到指定的tableView
+- (void)scrollToIndex:(NSInteger)index animated:(BOOL)animated;
+/// 当前显示的tableView滚动到顶部，使得 headerView 恰好收缩到最小
+- (void)currentTableViewScrollToTopAnimated:(BOOL)animated;
 
 @end
 

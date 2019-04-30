@@ -20,6 +20,8 @@
 @property (nonatomic, assign, readwrite) NSInteger currentIndex;
 @property (nonatomic, strong, nullable, readwrite) UITableView *currentTableView;
 
+@property (nonatomic, assign) BOOL isScrollAnimating;
+
 @end
 
 @implementation XZTableListScrollView
@@ -102,7 +104,7 @@
     self.viewModel.headerView.frame = CGRectMake(0, headerY, self.bounds.size.width, self.viewModel.headerViewHeight);
 }
 
-#pragma mark - 变量设置
+#pragma mark - 公开方法
 - (void)setViewModel:(XZTableListScrollViewModel *)viewModel {
     if (_viewModel.headerView) {
         [_viewModel.headerView removeFromSuperview];
@@ -160,11 +162,44 @@
     UITableView *tableView = self.tableList[index];
     [tableView reloadData];
     CGFloat minHeight = (self.viewModel.headerViewHeight - self.viewModel.headerFloatHeight) + self.bounds.size.height;
-    CGFloat contentHeight = tableView.contentInset.top + tableView.contentInset.bottom + tableView.contentSize.height;
+    CGFloat contentHeight = tableView.contentInset.top + tableView.contentSize.height;
     CGFloat footerExtraHeight = MAX(0, minHeight - contentHeight);
     UIEdgeInsets insets = tableView.contentInset;
-    insets.bottom += footerExtraHeight;
+    insets.bottom = footerExtraHeight;
     tableView.contentInset = insets;
+}
+
+- (void)scrollToIndex:(NSInteger)index animated:(BOOL)animated {
+    if (self.isScrollAnimating) {return;}
+    index = MAX(0, MIN(self.tableList.count-1, index));
+    CGPoint point = CGPointMake(index * self.scrollView.frame.size.width, 0);
+    
+    self.isScrollAnimating = YES;
+    [self fixupTableViewContentOffset];
+    [self addHeaderViewToSelf];
+    
+    __weak typeof(self) weakSelf = self;
+    CGFloat time = animated ? 0.25 : 0;
+    [UIView animateWithDuration:time animations:^{
+        [weakSelf.scrollView setContentOffset:point];
+    } completion:^(BOOL finished) {
+        weakSelf.currentIndex = weakSelf.scrollView.contentOffset.x / weakSelf.scrollView.frame.size.width;
+        [weakSelf addHeaderViewToCurrentTableView];
+        weakSelf.isScrollAnimating = NO;
+    }];
+}
+
+- (void)currentTableViewScrollToTopAnimated:(BOOL)animated {
+    if (self.isScrollAnimating) {return;}
+    self.isScrollAnimating = YES;
+    [self reloadTableViewAtIndex:self.currentIndex];
+    __weak typeof(self) weakSelf = self;
+    CGFloat time = animated ? 0.25 : 0;
+    [UIView animateWithDuration:time animations:^{
+        [weakSelf.currentTableView setContentOffset:CGPointMake(0, weakSelf.viewModel.headerViewHeight - weakSelf.viewModel.headerFloatHeight) animated:animated];
+    } completion:^(BOOL finished) {
+        weakSelf.isScrollAnimating = NO;
+    }];
 }
 
 #pragma mark - 视图大小
@@ -243,6 +278,7 @@
 }
 #pragma mark - UIScrollView 代理
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.isScrollAnimating) {return;}
     if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
         [self.delegate scrollViewDidScroll:scrollView];
     }
@@ -254,6 +290,7 @@
     [self updateHeaderViewFrameWhenScrollVertical];
 }
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if (self.isScrollAnimating) {return;}
     if ([self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
         [self.delegate scrollViewWillBeginDragging:scrollView];
     }
@@ -262,6 +299,7 @@
     [self addHeaderViewToSelf];
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (self.isScrollAnimating) {return;}
     if ([self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)]) {
         [self.delegate scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
     }
@@ -271,6 +309,7 @@
     }
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (self.isScrollAnimating) {return;}
     if ([self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
         [self.delegate scrollViewDidEndDecelerating:scrollView];
     }
@@ -282,6 +321,7 @@
     [self addHeaderViewToCurrentTableView];
 }
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    if (self.isScrollAnimating) {return;}
     if ([self.delegate respondsToSelector:@selector(scrollViewWillEndDragging:withVelocity:targetContentOffset:)]) {
         [self.delegate scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
     }
