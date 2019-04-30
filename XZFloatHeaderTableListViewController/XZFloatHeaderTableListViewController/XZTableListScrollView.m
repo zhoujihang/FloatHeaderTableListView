@@ -47,6 +47,7 @@
     self.scrollView.pagingEnabled = YES;
     self.scrollView.bounces = NO;
     self.scrollView.delegate = self;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
     if (@available(iOS 11.0, *)) {
         self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
@@ -139,7 +140,6 @@
         tableView.estimatedSectionHeaderHeight = 0;
         tableView.estimatedSectionFooterHeight = 0;
         tableView.showsVerticalScrollIndicator = NO;
-//        tableView.bounces = NO;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         if (@available(iOS 11.0, *)) {
             tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -153,6 +153,14 @@
     }
 }
 
+- (void)setCurrentIndex:(NSInteger)currentIndex {
+    BOOL isChanged = _currentIndex != currentIndex;
+    _currentIndex = currentIndex;
+    if (isChanged && [self.delegate respondsToSelector:@selector(xzTableListScrollView:didScrollToIndex:)]) {
+        [self.delegate xzTableListScrollView:self didScrollToIndex:currentIndex];
+    }
+}
+
 - (UITableView *)currentTableView {
     if (self.currentIndex >= self.tableList.count) {return nil;}
     return self.tableList[self.currentIndex];
@@ -160,7 +168,9 @@
 
 - (void)reloadTableViewAtIndex:(NSInteger)index {
     if (index >= self.tableList.count) {return;}
+    self.isScrollAnimating = YES;
     UITableView *tableView = self.tableList[index];
+    CGPoint offset = tableView.contentOffset;
     [tableView reloadData];
     CGFloat minHeight = (self.viewModel.headerViewHeight - self.viewModel.headerFloatHeight) + self.bounds.size.height;
     CGFloat contentHeight = tableView.contentInset.top + tableView.contentSize.height;
@@ -168,6 +178,9 @@
     UIEdgeInsets insets = tableView.contentInset;
     insets.bottom = footerExtraHeight;
     tableView.contentInset = insets;
+    offset.y = MAX(0, MIN(offset.y, tableView.contentSize.height + tableView.contentInset.top + tableView.contentInset.bottom - tableView.frame.size.height));
+    tableView.contentOffset = offset;
+    self.isScrollAnimating = NO;
 }
 
 - (void)scrollToIndex:(NSInteger)index animated:(BOOL)animated {
@@ -180,11 +193,11 @@
     [self addHeaderViewToSelf];
     
     __weak typeof(self) weakSelf = self;
-    CGFloat time = animated ? 0.25 : 0;
+    CGFloat time = animated ? 5.25 : 0;
     [UIView animateWithDuration:time animations:^{
         [weakSelf.scrollView setContentOffset:point];
     } completion:^(BOOL finished) {
-        weakSelf.currentIndex = weakSelf.scrollView.contentOffset.x / weakSelf.scrollView.frame.size.width;
+        weakSelf.currentIndex = (weakSelf.scrollView.contentOffset.x + weakSelf.scrollView.frame.size.width * 0.5) / weakSelf.scrollView.frame.size.width;
         [weakSelf addHeaderViewToCurrentTableView];
         weakSelf.isScrollAnimating = NO;
     }];
@@ -283,9 +296,8 @@
     if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
         [self.delegate scrollViewDidScroll:scrollView];
     }
-    CGFloat viewWidth = self.scrollView.frame.size.width;
     if (scrollView == self.scrollView) {
-        self.currentIndex = self.scrollView.contentOffset.x / viewWidth;
+        self.currentIndex = (self.scrollView.contentOffset.x + self.scrollView.frame.size.width * 0.5) / self.scrollView.frame.size.width;
         return;
     }
     [self updateHeaderViewFrameWhenScrollVertical];

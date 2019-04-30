@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 虽然继承了 UITableViewDelegate UITableViewDataSource 但只支持其中常用的那几个代理
 @protocol XZTableListScrollViewDelegate <UITableViewDelegate, UITableViewDataSource>
 
+- (void)xzTableListScrollView:(XZTableListScrollView *)view didScrollToIndex:(NSInteger)index;
+
 @end
 
 @interface XZTableListScrollView : UIView

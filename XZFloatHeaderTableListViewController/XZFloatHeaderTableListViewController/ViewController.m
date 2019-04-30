@@ -28,6 +28,16 @@
 - (void)setup {
     [self setupView];
     [self setupFrame];
+    [self refresh];
+}
+
+- (void)refresh {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        for (NSInteger i=0; i<self.tableListView.tableList.count; i++) {
+            [self.tableListView reloadTableViewAtIndex:i];
+        }
+        [self refresh];
+    });
 }
 
 - (void)setupView {
@@ -71,7 +81,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger tableIndex = [self.tableListView.tableList indexOfObject:tableView];
-    return tableIndex==0 ? 3 : 100;
+    return tableIndex==0 ? 3 : arc4random_uniform(50);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,14 +120,18 @@
     if (index == 0) {
         [self.tableListView reloadTableViewAtIndex:0];
     } else if (index == 1) {
-        [self.tableListView scrollToIndex:5 animated:YES];
+        [self.tableListView scrollToIndex:8 animated:YES];
     } else if (index == 2) {
         [self.tableListView currentTableViewScrollToTopAnimated:YES];
     } else if (index == 3) {
         [self.tableListView currentTableViewScrollToTopAnimated:NO];
-    } else if (index == 5) {
+    } else if (index == 8) {
         [self.tableListView scrollToIndex:0 animated:NO];
     }
+}
+
+- (void)xzTableListScrollView:(XZTableListScrollView *)view didScrollToIndex:(NSInteger)index {
+    NSLog(@"zjh index:%ld", (long)index);
 }
 
 @end
