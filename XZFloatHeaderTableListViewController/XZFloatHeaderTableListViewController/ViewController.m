@@ -28,7 +28,7 @@
 - (void)setup {
     [self setupView];
     [self setupFrame];
-    [self refresh];
+//    [self refresh];
 }
 
 - (void)refresh {

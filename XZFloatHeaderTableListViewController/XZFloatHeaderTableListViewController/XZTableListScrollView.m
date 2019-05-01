@@ -68,6 +68,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self updateFrame];
+    [self reloadTableViewAtIndex:self.currentIndex];
 }
 #pragma mark - headerView
 - (void)addHeaderViewToSelf {
@@ -90,12 +91,14 @@
 }
 /// 水平滚动时，headerView 在self身上
 - (void)updateHeaderViewFrameWhenScrollHorizontal {
+    if (self.viewModel.headerView.superview != self) {return;}
     CGFloat offsetY = self.currentTableView.contentOffset.y;
     CGFloat headerY = MAX(-ABS(self.viewModel.headerViewHeight - self.viewModel.headerFloatHeight), MIN(0, -offsetY));
     self.viewModel.headerView.frame = CGRectMake(0, headerY, self.bounds.size.width, self.viewModel.headerViewHeight);
 }
 /// 垂直滚动时，headerView 在self.currentTableView身上
 - (void)updateHeaderViewFrameWhenScrollVertical {
+    if (self.viewModel.headerView.superview != self.currentTableView) {return;}
     CGFloat offsetY = self.currentTableView.contentOffset.y;
     CGFloat hiddenHeight = self.viewModel.headerViewHeight - self.viewModel.headerFloatHeight;
     CGFloat headerY = 0;
@@ -122,9 +125,6 @@
         for (UITableView *tableView in self.tableList) {
             [pan requireGestureRecognizerToFail:tableView.panGestureRecognizer];
         }
-    }
-    for (NSInteger i=0; i<self.tableList.count; i++) {
-        [self reloadTableViewAtIndex:i];
     }
 }
 
@@ -183,6 +183,7 @@
     tableView.contentInset = insets;
     offset.y = MAX(0, MIN(offset.y, tableView.contentSize.height + tableView.contentInset.top + tableView.contentInset.bottom - tableView.frame.size.height));
     tableView.contentOffset = offset;
+    [self updateHeaderViewFrameWhenScrollVertical];
     self.isScrollAnimating = NO;
 }
 
